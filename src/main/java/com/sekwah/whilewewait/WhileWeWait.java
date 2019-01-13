@@ -34,7 +34,7 @@ public class WhileWeWait implements ModInitializer {
 
         this.audioManager = new AudioManager();
 
-        this.audioManager.startMusic(WhileWeWait.class.getResourceAsStream("/assets/whilewewait/sounds/waiting.mp3"));
+        this.audioManager.startMusic();
 
         float volume = options.getSoundVolume(SoundCategory.MASTER);
 

@@ -12,14 +12,14 @@ public class AudioManager {
 
     private boolean isPlaying = false;
 
-    public void startMusic(InputStream resourceAsStream) {
+    public void startMusic() {
         new Thread(() -> {
             try {
                 AudioInputStream ais =
-                        AudioSystem.getAudioInputStream(resourceAsStream);
+                        AudioSystem.getAudioInputStream(WhileWeWait.class.getResourceAsStream("/assets/whilewewait/sounds/waiting.wav"));
                 AudioFormat baseFormat = ais.getFormat();
                 AudioFormat decodeFormat = new AudioFormat(
-                        AudioFormat.Encoding.PCM_SIGNED,
+                        baseFormat.getEncoding(),
                         baseFormat.getSampleRate(),
                         16,
                         baseFormat.getChannels(),
@@ -33,7 +33,7 @@ public class AudioManager {
                 clip.open(dais);
                 clip.start();
             } catch (Exception e) {
-                WhileWeWait.logger.error(e.getMessage());
+                e.printStackTrace();
             }
         }).start();
     }
