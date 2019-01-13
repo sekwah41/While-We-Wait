@@ -28,15 +28,8 @@ public class WhileWeWait implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        logger.info("Starting wait music");
-
-        GameOptions options = new GameOptions(MinecraftClient.getInstance(), MinecraftClient.getInstance().runDirectory);
 
         this.audioManager = new AudioManager();
-
-        this.audioManager.startMusic();
-
-        float volume = options.getSoundVolume(SoundCategory.MASTER);
 
     }
 

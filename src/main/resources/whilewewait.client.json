@@ -3,6 +3,11 @@
   "package": "com.sekwah.whilewewait.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "GameStartMixin",
+    "AudioInitialisationMixin",
+    "SoundManagerMixin",
+    "SoundLoaderMixin",
+    "ReloadableResourceManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

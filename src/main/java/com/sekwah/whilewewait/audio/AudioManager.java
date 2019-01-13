@@ -2,42 +2,51 @@ package com.sekwah.whilewewait.audio;
 
 import com.sekwah.whilewewait.WhileWeWait;
 
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import java.io.InputStream;
-
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.audio.*;
+import net.minecraft.client.options.GameOptions;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 public class AudioManager {
 
     private boolean isPlaying = false;
+    private SoundLoader soundLoader;
+    private MusicTracker musicTracker;
+    private SoundEvent WAITING_MUSIC = register("waiting");
+    private CustomSoundInstance current;
 
+    public void init() {
+        if(soundLoader != null) {
+            return;
+        }
+        soundLoader = MinecraftClient.getInstance().getSoundLoader();
+        musicTracker = MinecraftClient.getInstance().getMusicTracker();
+
+    }
+
+    /**
+     * class_1138 is LibraryLWJGLOpenAL (from paulscode)
+     */
     public void startMusic() {
-        new Thread(() -> {
-            try {
-                AudioInputStream ais =
-                        AudioSystem.getAudioInputStream(WhileWeWait.class.getResourceAsStream("/assets/whilewewait/sounds/waiting.wav"));
-                AudioFormat baseFormat = ais.getFormat();
-                AudioFormat decodeFormat = new AudioFormat(
-                        baseFormat.getEncoding(),
-                        baseFormat.getSampleRate(),
-                        16,
-                        baseFormat.getChannels(),
-                        baseFormat.getChannels() * 2,
-                        baseFormat.getSampleRate(),
-                        false);
-                AudioInputStream dais =
-                        AudioSystem.getAudioInputStream(
-                                decodeFormat, ais);
-                Clip clip = AudioSystem.getClip();
-                clip.open(dais);
-                clip.start();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }).start();
+        //musicTracker.play(new MusicTracker.MusicType(WAITING_MUSIC, 20, 600) );
+        current = new CustomSoundInstance(WAITING_MUSIC);
+        soundLoader.play(current);
+        soundLoader.tick();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private static SoundEvent register(String name) {
+        return (SoundEvent) Registry.register(Registry.SOUND_EVENT, name, new SoundEvent(new Identifier("whilewewait", name)));
     }
 
     public void stopMusic() {
+        soundLoader.stop(current);
     }
 }
