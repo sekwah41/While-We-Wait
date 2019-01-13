@@ -9,10 +9,9 @@ import net.minecraft.util.Identifier;
 public class CustomSoundInstance extends AbstractSoundInstance {
 
     private SoundEvent event;
-    private WeightedSoundSet accessor;
 
     public CustomSoundInstance(SoundEvent event) {
-        super(event, SoundCategory.MASTER);
+        super(event, SoundCategory.RECORD);
         this.event = event;
     }
 
