@@ -30,16 +30,12 @@ public class AudioManager {
      * class_1138 is LibraryLWJGLOpenAL (from paulscode)
      */
     public void startMusic() {
-        //musicTracker.play(new MusicTracker.MusicType(WAITING_MUSIC, 20, 600) );
+        if(current != null) {
+            return;
+        }
+        soundLoader.stopAll();
         current = new CustomSoundInstance(WAITING_MUSIC);
         soundLoader.play(current);
-        soundLoader.tick();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
     }
 
     private static SoundEvent register(String name) {
@@ -47,6 +43,9 @@ public class AudioManager {
     }
 
     public void stopMusic() {
-        soundLoader.stop(current);
+        if(current != null) {
+            soundLoader.stop(current);
+            current = null;
+        }
     }
 }
