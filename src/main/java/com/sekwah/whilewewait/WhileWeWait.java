@@ -2,13 +2,8 @@ package com.sekwah.whilewewait;
 
 import com.sekwah.whilewewait.audio.AudioManager;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.options.GameOptions;
-import net.minecraft.sound.SoundCategory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.io.InputStream;
 
 public class WhileWeWait implements ModInitializer {
 

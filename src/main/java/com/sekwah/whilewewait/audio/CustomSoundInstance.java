@@ -1,6 +1,7 @@
 package com.sekwah.whilewewait.audio;
 
-import net.minecraft.client.audio.*;
+import net.minecraft.client.audio.AbstractSoundInstance;
+import net.minecraft.client.audio.WeightedSoundSet;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
@@ -27,7 +28,7 @@ public class CustomSoundInstance extends AbstractSoundInstance {
 
     @Override
     public float getVolume() {
-        return 1;
+        return 0.75f;
     }
 
     @Override
