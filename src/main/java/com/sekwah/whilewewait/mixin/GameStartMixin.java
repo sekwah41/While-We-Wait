@@ -28,7 +28,7 @@ public class GameStartMixin {
 
     @Inject(method = "openGui", at = @At("HEAD"))
     public void openGui(Gui gui, CallbackInfo ci){
-        System.out.println(gui);
+        //System.out.println(gui);
         if(gui instanceof WorldGenerationProgressGui ||gui instanceof ServerConnectingGui || gui instanceof WorkingGui
                 || gui instanceof DownloadingTerrainGui || gui instanceof CloseWorldGui) {
             WhileWeWait.getInstance().audioManager.startMusic();
