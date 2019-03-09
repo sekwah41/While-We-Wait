@@ -5,36 +5,41 @@ import net.minecraft.client.audio.SoundLoader;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+
 public class AudioManager {
 
-    private static SoundLoader soundLoader;
     private static final SoundEvent WAITING_MUSIC = register("waiting");
-    private static CustomSoundInstance current;
-
-    public static void init() {
-        soundLoader = MinecraftClient.getInstance().getSoundLoader();
-    }
+    private static final CustomSoundInstance SOUND_INSTANCE = new CustomSoundInstance(WAITING_MUSIC);
+    private static SoundLoader soundLoader;
+    private static boolean playing = false;
 
     /**
      * class_1138 is LibraryLWJGLOpenAL (from paulscode)
      */
     public static void startMusic() {
-        if(current != null) {
-            return;
+        if(!playing) {
+            getSoundLoader().stopAll();
+            getSoundLoader().play(SOUND_INSTANCE);
+            playing = true;
         }
-        soundLoader.stopAll();
-        current = new CustomSoundInstance(WAITING_MUSIC);
-        soundLoader.play(current);
     }
 
     private static SoundEvent register(String name) {
-        return Registry.register(Registry.SOUND_EVENT, name, new SoundEvent(new Identifier("whilewewait", name)));
+        Identifier id = new Identifier("whilewewait", name);
+        return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(id));
     }
 
     public static void stopMusic() {
-        if(current != null) {
-            soundLoader.stop(current);
-            current = null;
+        if(playing) {
+            getSoundLoader().stop(SOUND_INSTANCE);
+            playing = false;
         }
+    }
+
+    private static SoundLoader getSoundLoader() {
+        if(soundLoader == null) {
+            soundLoader = MinecraftClient.getInstance().getSoundLoader();
+        }
+        return soundLoader;
     }
 }
