@@ -1,7 +1,6 @@
 package com.sekwah.whilewewait.audio;
 
 import net.minecraft.client.audio.AbstractSoundInstance;
-import net.minecraft.client.audio.WeightedSoundSet;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
@@ -10,7 +9,7 @@ public class CustomSoundInstance extends AbstractSoundInstance {
 
     private SoundEvent event;
 
-    public CustomSoundInstance(SoundEvent event) {
+    CustomSoundInstance(SoundEvent event) {
         super(event, SoundCategory.RECORD);
         this.event = event;
     }
