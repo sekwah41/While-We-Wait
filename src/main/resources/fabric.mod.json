@@ -4,10 +4,7 @@
   "description": "Just a little something to fill the void that is waiting for a world\n\nMusic is The Elevator Bossa Nova from Bensound.com",
   "version": "1.0.0",
   "side": "client",
-  "initializer": "com.sekwah.whilewewait.WhileWeWait",
-  "requires": {
-  },
   "mixins": {
-    "client": "whilewewait.client.json"
+    "client": "mixins.whilewewait.client.json"
   }
 }
