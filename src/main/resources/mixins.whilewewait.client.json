@@ -3,8 +3,7 @@
   "package": "com.sekwah.whilewewait.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "GameStartMixin",
-    "MixinWorldGenerationProgressScreen"
+    "GameStartMixin"
   ],
   "injectors": {
     "defaultRequire": 1
