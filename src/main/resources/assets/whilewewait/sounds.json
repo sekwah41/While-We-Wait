@@ -4,7 +4,7 @@
     "sounds": [
       {
         "name": "whilewewait:music/waiting",
-        "stream": true
+        "stream": false
       }
     ]
   }
