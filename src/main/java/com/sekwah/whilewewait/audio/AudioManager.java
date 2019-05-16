@@ -1,7 +1,7 @@
 package com.sekwah.whilewewait.audio;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.audio.SoundManager;
+import net.minecraft.client.sound.SoundManager;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;

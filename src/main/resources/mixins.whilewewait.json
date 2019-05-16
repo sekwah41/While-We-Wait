@@ -3,6 +3,8 @@
   "package": "com.sekwah.whilewewait.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+  ],
+  "client": [
     "GameStartMixin"
   ],
   "injectors": {
