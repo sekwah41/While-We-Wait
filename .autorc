@@ -1,0 +1,29 @@
+{
+  "baseBranch": "master",
+  "plugins": [
+    [
+      "gradle",
+      {
+        "gradleCommand": "./gradlew",
+        "gradleOptions": [""]
+      }
+    ],
+    [
+      "exec",
+      {
+        "canary": "./gradlew build"
+      }
+    ],
+    ["conventional-commits", { "preset": "angular" }],
+    "released",
+    ["upload-assets", ["./build/libs/*.jar"]]
+  ],
+  "owner": "sekwah41",
+  "repo": "While-We-Wait",
+  "name": "Sekwah",
+  "email": "contact@sekwah.com",
+  "onlyPublishWithReleaseLabel": true,
+  "shipit": {
+      "onlyGraduateWithReleaseLabel": true
+  }
+}
