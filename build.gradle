@@ -64,6 +64,10 @@ curseforge {
 		}
 		//addArtifact srcJar
 	}
+
+	options {
+		forgeGradleIntegration = false
+	}
 }
 
 // https://github.com/researchgate/gradle-release
