@@ -59,10 +59,8 @@ curseforge {
 		releaseType = 'release'
 		addGameVersion '1.17.1'
 
-		mainArtifact(jar){
-
-		}
-		//addArtifact srcJar
+		mainArtifact remapJar
+		addArtifact jar
 	}
 
 	options {
