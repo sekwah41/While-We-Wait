@@ -1,3 +1,15 @@
+# v1.4.1 (Fri Aug 13 2021)
+
+#### 🐛 Bug Fix
+
+- chore(ci): Curse publishing wrong jar [#9](https://github.com/sekwah41/While-We-Wait/pull/9) ([@sekwah41](https://github.com/sekwah41))
+
+#### Authors: 1
+
+- Sekwah ([@sekwah41](https://github.com/sekwah41))
+
+---
+
 # v1.3.0 (Fri Aug 13 2021)
 
 #### 🚀 Enhancement
