@@ -18,7 +18,7 @@ public abstract class GameStartMixin {
 
     @Inject(method = "setScreen", at = @At("HEAD"))
     private void startStopMusic(Screen screen, CallbackInfo ci) {
-        if(screen instanceof LevelLoadingScreen || screen instanceof DownloadingTerrainScreen || screen instanceof SaveLevelScreen || screen instanceof ConnectScreen) {
+        if(screen instanceof LevelLoadingScreen || screen instanceof DownloadingTerrainScreen || screen instanceof ConnectScreen) {
             AudioManager.startMusic();
         }
         else if(!(screen instanceof ProgressScreen)) {
