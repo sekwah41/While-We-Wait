@@ -7,6 +7,6 @@
     "@auto-it/released": "10.37.1",
     "@auto-it/upload-assets": "10.37.1",
     "auto": "10.37.1",
-    "conventional-changelog-angular": "5.0.13"
+    "conventional-changelog-angular": "6.0.0"
   }
 }
