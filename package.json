@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@auto-it/conventional-commits": "10.37.1",
+    "@auto-it/conventional-commits": "11.2.1",
     "@auto-it/exec": "10.37.1",
     "@auto-it/first-time-contributor": "10.37.1",
     "@auto-it/gradle": "10.37.1",
